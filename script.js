@@ -43,9 +43,9 @@ let css_by_index = (index) => {
 let css_by_italic = (italic) => {
 	if ("function" == typeof italic) { italic = italic() }
 	return `font-size: ${fontSize()}px; font-variation-settings: "wght" 300, "ital" ${italic};
-	transform:  translateY(${italic / 4}px);
-	transform: rotateZ(${(italic * -1) / 5}deg) ;
+	transform:  translateY(${italic}px);
 	transform: rotateZ(${(italic * -1) / 15}deg) translateY(${italic}px);
+	transform: rotateY(${(italic * -1)}deg) ;
 
 	border: 2px solid rgba(255,255,255,1);
 opacity: ${((Math.abs(italic) / 300))};
