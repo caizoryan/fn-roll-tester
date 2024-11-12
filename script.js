@@ -9,7 +9,7 @@ let mouse_y = sig(0)
 let val = sig(0)
 
 setInterval(() => {
-	val.set(val() + .01)
+	val.set(val() + .03)
 }, 10)
 
 document.addEventListener("keydown", (e) => {
@@ -45,10 +45,9 @@ let css_by_italic = (italic) => {
 	return `font-size: ${fontSize()}px; font-variation-settings: "wght" 300, "ital" ${italic};
 	transform: rotateZ(${(italic * -1) / 5}deg) translateY(${italic / 4}px);
 	transform:  translateY(${italic / 4}px);
-	transform:  translateX(${italic / 4}px);
 
 	border: 1px dotted rgba(255,255,255,.4);
-opacity: ${1 - ((Math.abs(italic) / 300))};
+opacity: ${(Math.abs(italic) / 300)};
 border-radius: 100px;
 	`
 }
