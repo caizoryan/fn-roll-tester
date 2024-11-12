@@ -46,7 +46,7 @@ let css_by_italic = (italic) => {
 	transform: rotateZ(${(italic * -1) / 5}deg) translateY(${italic / 4}px);
 	transform:  translateY(${italic / 4}px);
 
-	border: 4px dotted rgba(255,255,255,.4);
+	border: 2px dotted rgba(255,255,255,1);
 opacity: ${((Math.abs(italic) / 300))};
 border-radius: 100px;
 	`
