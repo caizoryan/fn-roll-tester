@@ -47,7 +47,7 @@ let css_by_italic = (italic) => {
 	transform:  translateY(${italic / 4}px);
 
 	border: 1px dotted rgba(255,255,255,.4);
-opacity: ${(Math.abs(italic) / 300)};
+opacity: ${1 - ((Math.abs(italic) / 300))};
 border-radius: 100px;
 	`
 }
