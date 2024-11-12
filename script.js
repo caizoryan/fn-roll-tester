@@ -43,10 +43,11 @@ let css_by_index = (index) => {
 let css_by_italic = (italic) => {
 	if ("function" == typeof italic) { italic = italic() }
 	return `font-size: ${fontSize()}px; font-variation-settings: "wght" 300, "ital" ${italic};
-	transform: rotateZ(${(italic * -1) / 5}deg) translateY(${italic / 4}px);
 	transform:  translateY(${italic / 4}px);
+	transform: rotateZ(${(italic * -1) / 5}deg) ;
+	transform: rotateZ(${(italic * -1) / 15}deg) translateY(${italic}px);
 
-	border: 2px dotted rgba(255,255,255,1);
+	border: 2px solid rgba(255,255,255,1);
 opacity: ${((Math.abs(italic) / 300))};
 border-radius: 100px;
 	`
