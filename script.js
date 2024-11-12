@@ -45,11 +45,10 @@ let css_by_italic = (italic) => {
 	return `font-size: ${fontSize()}px; font-variation-settings: "wght" 300, "ital" ${italic};
 	transform:  translateY(${italic}px);
 	transform: rotateZ(${(italic * -1) / 15}deg) translateY(${italic}px);
-	transform: rotateY(${(italic * -1)}deg) ;
+	transform: rotateY(${(italic / 4)}deg) ;
 
-	border: 2px solid rgba(255,255,255,1);
+border: 1px dotted rgba(255,255,255,.5);
 opacity: ${((Math.abs(italic) / 300))};
-border-radius: 100px;
 	`
 }
 
