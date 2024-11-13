@@ -6,10 +6,10 @@ let text = sig("interaction")
 // let text = sig("interace")
 let mouse_x = sig(0)
 let mouse_y = sig(0)
-let val = sig(0)
+let time = sig(0)
 
 setInterval(() => {
-	val.set(val() + .01)
+	time.set(time() + .03)
 }, 10)
 
 document.addEventListener("keydown", (e) => {
@@ -43,24 +43,24 @@ let css_by_index = (index) => {
 let css_by_italic = (italic) => {
 	if ("function" == typeof italic) { italic = italic() }
 	return `font-size: ${fontSize()}px; font-variation-settings: "wght" 300, "ital" ${italic};
-	transform:  translateY(${italic}px);
-	transform: rotateZ(${(italic * -1) / 15}deg) translateY(${italic}px);
-	transform: rotateY(${(italic / 4)}deg) ;
+	transform: rotateZ(${(italic * -1) / 5}deg) translateY(${italic / 4}px);
+	transform:  translateY(${italic / 4}px);
 
-border: 1px dotted rgba(255,255,255,.5);
-opacity: ${((Math.abs(italic) / 300))};
+	border: 1px dotted rgba(255,255,255,.4);
+opacity: ${(Math.abs(italic) / 300)};
+border-radius: 100px;
 	`
 }
 
 
-let letter = (letter, i) => {
-	if ("function" == typeof i) { i = (i() + 1) }
-	else { i = (i + 1) }
-	let ital = sig(i)
+let letter = (letter, index) => {
+	if ("function" == typeof index) { index = (index() + 1) }
+	else { index = (index + 1) }
+	let ital = sig(index)
 	let css = mem(() => css_by_italic(ital))
 
 	setInterval(() => {
-		ital.set(Math.sin(val() + i) * 300)
+		ital.set(Math.sin(time() * index / 8) * 300)
 	}, 10)
 
 	return html`div[style = ${css}]--${letter} `
